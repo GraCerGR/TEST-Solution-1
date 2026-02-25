@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -19,6 +21,7 @@ def driver():
 
 def test_page_has_title(driver):
     """Проверяет, что на странице есть title и он не пустой."""
+    time.sleep(20)
     driver.get(TEST_URL)
     title = driver.title
     assert title != "", "У страницы отсутствует title"

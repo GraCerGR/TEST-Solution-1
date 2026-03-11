@@ -21,8 +21,8 @@ def driver():
 
 def test_page_has_title(driver):
     """Проверяет, что на странице есть title и он не пустой."""
-    time.sleep(30)
     driver.get(TEST_URL)
+    time.sleep(30)
     title = driver.title
     assert title != "", "У страницы отсутствует title"
     print(f"✅ Title найден: {title}")

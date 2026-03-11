@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 # URL твоего тестового сайта (можно заменить на http://localhost:8080, если сайт запущен в контейнере)
-TEST_URL = "http://site3:80"#"http://localhost:8080"
+TEST_URL = "https://www.dns-shop.ru/"#"http://localhost:8080"
 
 @pytest.fixture(scope="module")
 def driver():
@@ -21,7 +21,7 @@ def driver():
 
 def test_page_has_title(driver):
     """Проверяет, что на странице есть title и он не пустой."""
-    time.sleep(6)
+    time.sleep(30)
     driver.get(TEST_URL)
     title = driver.title
     assert title != "", "У страницы отсутствует title"

@@ -22,7 +22,7 @@ def driver():
 def test_page_has_title(driver):
     """Проверяет, что на странице есть title и он не пустой."""
     driver.get(TEST_URL)
-    time.sleep(6)
+    time.sleep(1)
     title = driver.title
     assert title != "", "У страницы отсутствует title"
     print(f"✅ Title найден: {title}")
@@ -30,6 +30,14 @@ def test_page_has_title(driver):
 
 def test_h1_text_is_correct(driver):
     """Проверяет, что заголовок h1 содержит нужный текст."""
+    driver.get(TEST_URL)
+    h1 = driver.find_element(By.TAG_NAME, "h1")
+    expected_text = "Пример сайта для тестов"
+    assert h1.text == expected_text, f"Ожидался текст '{expected_text}', но найден '{h1.text}'"
+    print(f"✅ Заголовок найден: {h1.text}")
+
+
+def test_h2_text_is_correct(driver):
     driver.get(TEST_URL)
     h1 = driver.find_element(By.TAG_NAME, "h1")
     expected_text = "Пример сайта для тестов"
